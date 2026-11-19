@@ -15,3 +15,8 @@ Thumbs.db
 .vscode/
 .idea/
 *.log
+
+# Certificados y configuración de despliegue
+*.pem
+*.key
+.env.local

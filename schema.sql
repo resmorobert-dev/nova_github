@@ -51,6 +51,9 @@ CREATE TABLE IF NOT EXISTS `excusas` (
   `id_excusa` INT AUTO_INCREMENT PRIMARY KEY,
   `id_llegada` INT NOT NULL,
   `archivo` VARCHAR(255) NOT NULL,
+  `nombre_original` VARCHAR(255) DEFAULT NULL,
+  `tipo_mime` VARCHAR(100) DEFAULT NULL,
+  `contenido` MEDIUMBLOB DEFAULT NULL,
   `estado` ENUM('pendiente', 'aprobada', 'rechazada') DEFAULT 'pendiente',
   `fecha_subida` DATETIME DEFAULT CURRENT_TIMESTAMP,
   FOREIGN KEY (`id_llegada`) REFERENCES `llegada_tarde`(`id_llegada`) ON DELETE CASCADE
@@ -86,3 +89,12 @@ CREATE TABLE IF NOT EXISTS `exportacion` (
 -- ===================================================
 
 -- No se incluyen usuarios ni datos personales de ejemplo en el repositorio público.
+
+
+-- Sesiones PHP compartidas entre instancias (necesario en despliegues serverless).
+CREATE TABLE IF NOT EXISTS `php_sessions` (
+  `session_id` VARCHAR(128) NOT NULL PRIMARY KEY,
+  `session_data` MEDIUMBLOB NOT NULL,
+  `last_activity` INT NOT NULL,
+  INDEX `idx_php_sessions_activity` (`last_activity`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
