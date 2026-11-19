@@ -1,0 +1,5 @@
+# Impedir ejecución de scripts en la carpeta de archivos adjuntos
+<FilesMatch "\.(php|phtml|php3|php4|php5|php7|php8|phar|pl|py|cgi|sh|exe)$">
+  Require all denied
+</FilesMatch>
+Options -Indexes

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80">
+  <rect x="12" y="6" width="56" height="68" rx="8" fill="#ecfdf5" stroke="#16a34a" stroke-width="3"/>
+  <path d="M50 6 L68 24 L50 24 Z" fill="#86efac" stroke="#16a34a" stroke-width="2"/>
+  <rect x="18" y="38" width="44" height="20" rx="4" fill="#16a34a"/>
+  <text x="40" y="52" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#ffffff" text-anchor="middle">EXCEL</text>
+</svg>

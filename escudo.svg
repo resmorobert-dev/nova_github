@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 140" width="120" height="140">
+  <defs>
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#065f46"/>
+      <stop offset="100%" stop-color="#047857"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="50%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+  </defs>
+  <path d="M60 6 L110 24 L110 68 C110 102 60 128 60 134 C60 128 10 102 10 68 L10 24 Z" fill="url(#shieldGrad)" stroke="url(#goldGrad)" stroke-width="5"/>
+  <path d="M22 65 L45 40 L65 60 L82 36 L98 65 Z" fill="#fbbf24" opacity="0.9"/>
+  <circle cx="60" cy="28" r="7" fill="#fef3c7"/>
+  <path d="M32 82 L88 82 L88 96 C88 106 60 118 60 118 C60 118 32 106 32 96 Z" fill="#ffffff" opacity="0.95"/>
+  <text x="60" y="96" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#064e3b" text-anchor="middle">LOS ANDES</text>
+  <text x="60" y="108" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#d97706" text-anchor="middle">NOVA</text>
+</svg>
