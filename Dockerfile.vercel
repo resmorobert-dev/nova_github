@@ -7,6 +7,7 @@ RUN docker-php-ext-install pdo_mysql \
     && cp "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
 
 COPY . /app
+COPY Caddyfile /etc/caddy/Caddyfile
 
 RUN printf "upload_max_filesize=3M\npost_max_size=4M\nmax_execution_time=30\n" > "$PHP_INI_DIR/conf.d/nova.ini"
 
