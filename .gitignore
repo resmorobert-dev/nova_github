@@ -1,0 +1,17 @@
+# Configuración local y secretos
+.env
+.env.*
+!.env.example
+config/db.local.php
+config/hardware.local.php
+
+# Archivos cargados por usuarios (excusas, fotos, documentos)
+uploads/*
+!uploads/.gitkeep
+
+# Sistema / IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log
