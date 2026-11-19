@@ -51,9 +51,6 @@ CREATE TABLE IF NOT EXISTS `excusas` (
   `id_excusa` INT AUTO_INCREMENT PRIMARY KEY,
   `id_llegada` INT NOT NULL,
   `archivo` VARCHAR(255) NOT NULL,
-  `nombre_original` VARCHAR(255) DEFAULT NULL,
-  `tipo_mime` VARCHAR(100) DEFAULT NULL,
-  `contenido` MEDIUMBLOB DEFAULT NULL,
   `estado` ENUM('pendiente', 'aprobada', 'rechazada') DEFAULT 'pendiente',
   `fecha_subida` DATETIME DEFAULT CURRENT_TIMESTAMP,
   FOREIGN KEY (`id_llegada`) REFERENCES `llegada_tarde`(`id_llegada`) ON DELETE CASCADE
@@ -87,14 +84,29 @@ CREATE TABLE IF NOT EXISTS `exportacion` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ===================================================
+-- DATOS SEMILLA (SEED DATA)
+-- ===================================================
 
--- No se incluyen usuarios ni datos personales de ejemplo en el repositorio público.
+-- Usuario por defecto (soporta admin / admin123)
+INSERT INTO `coordinadora` (`usuario`, `contraseña`) VALUES
+('admin', 'admin123')
+ON DUPLICATE KEY UPDATE `contraseña` = VALUES(`contraseña`);
 
+-- Grupos iniciales
+INSERT INTO `grupos` (`grado`, `nombre_grupo`) VALUES
+('10', 'A'), ('10', 'B'), ('11', 'A'), ('9', 'C');
 
--- Sesiones PHP compartidas entre instancias (necesario en despliegues serverless).
-CREATE TABLE IF NOT EXISTS `php_sessions` (
-  `session_id` VARCHAR(128) NOT NULL PRIMARY KEY,
-  `session_data` MEDIUMBLOB NOT NULL,
-  `last_activity` INT NOT NULL,
-  INDEX `idx_php_sessions_activity` (`last_activity`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+-- Estudiantes iniciales
+INSERT INTO `estudiante` (`documento`, `nombre`, `grado`, `grupo`, `huella`) VALUES
+('1089647435', 'Pepito Perez', '10', 'B', 'HUELLA_PEPITO_1089647435'),
+('1002345678', 'Maria Rodriguez', '11', 'A', 'HUELLA_MARIA_1002345678'),
+('1098765432', 'Carlos Gomez', '9', 'C', 'HUELLA_CARLOS_1098765432');
+
+-- Historial inicial para Pepito Perez (id_estudiante: 1)
+INSERT INTO `llegada_tarde` (`id_estudiante`, `fecha`, `hora`, `excusa`, `observacion`) VALUES
+(1, '2026-07-15', '07:15:00', 1, 'Cita médica'),
+(1, '2026-07-18', '08:30:00', 0, NULL),
+(1, '2026-07-22', '10:45:00', 1, 'Transporte averiado'),
+(1, '2026-07-27', '12:20:00', 1, 'Calamidad doméstica'),
+(1, '2026-08-03', '14:55:00', 0, NULL),
+(1, '2026-08-10', '13:40:00', 1, 'Cita odontológica');

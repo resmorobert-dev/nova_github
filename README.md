@@ -45,15 +45,20 @@ define('DB_NAME', 'colegio_nova');
 
 ---
 
-## 🔐 Configuración inicial y seguridad
+## 🔑 Credenciales de Acceso por Defecto
+- **Módulo de Coordinación**:
+  - **URL**: http://localhost/colegio_nova/login.php
+  - **Usuario**: admin
+  - **Contraseña**: admin123
 
-Por seguridad, este repositorio público no incluye credenciales predeterminadas ni registros personales de estudiantes.
+- **Módulo Kiosco de Estudiantes**:
+  - **URL**: http://localhost/colegio_nova/index.php
+  - **Estudiantes de Prueba**:
+    - Documento '1089647435' (Pepito Pérez - Grado 10 B)
+    - Documento '1002345678' (María Rodríguez - Grado 11 A)
+    - Documento '1098765432' (Carlos Gómez - Grado 9 C)
 
-- Configure las credenciales de MySQL en `config/db.php` para su entorno local.
-- Cree el usuario administrador desde un procedimiento seguro que almacene la contraseña con `password_hash()`.
-- Cambie `HUELLA_API_KEY` en `config/hardware.php` y use exactamente la misma clave en el firmware antes de conectar el ESP32.
-- No suba fotografías, excusas, documentos, huellas reales, contraseñas ni datos de estudiantes.
-- La carpeta `uploads/` se conserva vacía; los archivos cargados se excluyen mediante `.gitignore`.
+---
 
 ## 📁 Estructura del Proyecto
 colegio_nova/

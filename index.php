@@ -1,5 +1,6 @@
 <?php
 /* Portada de NOVA: logo, descripción del proyecto y botón Iniciar */
+require_once 'auth/session.php';
 ?>
 <!DOCTYPE html>
 <html lang="es">

@@ -1,5 +1,6 @@
 <?php
 /* Elección de acceso: Administrador (login) o Estudiante (huella) */
+require_once 'auth/session.php';
 ?>
 <!DOCTYPE html>
 <html lang="es">
